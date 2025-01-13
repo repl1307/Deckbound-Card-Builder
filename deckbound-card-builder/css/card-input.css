@@ -1,0 +1,145 @@
+
+.card-input-container {
+    flex-direction: column;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    flex: 1;
+    overflow: hidden;
+}
+
+.card-input, .card-text-area {
+    justify-content: space-between;
+    margin: 0.25rem 1rem;
+}
+.card-text-area {
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+}
+
+input, textarea {
+    resize: none;
+    font-size: 1.25rem;
+}
+
+.card-input select {
+    width: 50%;
+}
+
+.card-input .path {
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 1rem;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.export-button-container {
+    justify-content: right;
+    margin: 0;
+    margin-top: 0.5rem;
+    padding: 0;
+}
+
+.export-button {
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    transition: scale 0.25s;
+    margin: 0;
+}
+
+.open-gallery-button {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+button:active:not(.copy-button) {
+    scale: 0.9;
+}
+
+.card-text-area span {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.card-input input {
+    width: 70%;
+}
+
+.current-effects {
+    flex-direction: column;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    flex: 1;
+    overflow: auto;
+}
+
+.current-effects > .header {
+    font-size: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    flex-direction: column;
+}
+
+.current-effects > .body {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.header > .effect-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0;
+    padding: 0.5rem;
+    justify-content: space-between;
+}
+
+.effect-container {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0;
+    padding: 0.5rem;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.effect-container > * {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.effect-container > .remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-right: 0.25rem;
+    border-radius: 0.5rem;
+    scale: 1 0.8;
+    color: rgba(255, 255, 255, 0);
+    user-select: none;
+
+}
+
+.effect-container:hover > .remove-button {
+    color: rgb(144, 0, 0);
+    background-color: rgb(114, 81, 81);
+    cursor: pointer;
+    border: 2px solid;
+}

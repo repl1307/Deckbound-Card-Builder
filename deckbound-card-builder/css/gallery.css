@@ -1,0 +1,135 @@
+.gallery {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 80vmin;
+    height: 50vmin;
+    background-color: rgb(67, 67, 126);
+    margin: 0.5rem;
+    padding: 0.25rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    z-index: 500;
+    border-radius: 0.5rem;
+}
+
+.gallery > * {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 0;
+}
+
+.gallery .header {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.gallery .header .text {
+    font-size: 1.75rem;
+    flex: 1;
+    padding: 0.25rem 0.5rem;
+    user-select: none;
+}
+.gallery .header .text:hover { 
+    cursor: grab;
+}
+
+.gallery .header .text:active {
+    cursor: grabbing;
+}
+
+.gallery .header .exit-button {
+    background-color: rgb(169, 0, 0);
+    height: 100%;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.gallery .header .exit-button:hover{
+    cursor: pointer;
+}
+
+.gallery .header .exit-button::after {
+    content: 'X';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    translate: -50% 0;
+    font-size: 2.75rem;
+    padding: 0;
+    margin: 0;
+    max-height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.gallery .images-container {
+    flex: 1;
+    margin-top: 0.25rem;
+    align-items: flex-start;
+}
+
+.gallery .images-container .file {
+    box-sizing: border-box;
+    width: 10vmin;
+    height: 10vmin;
+    max-height: 10vmin;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.gallery .images-container .file img {
+    height: 75%;
+    object-fit: cover;
+}
+
+
+.gallery .images-container .file .text {
+    min-height: 1rem;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery .path-display-container {
+    min-height: 2rem;
+    margin-top: 0.25rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.gallery .path-display {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.gallery .back-button {
+    width: 3rem;
+    background-color: darkgreen;
+    position: relative;
+}
+
+.gallery .back-button:hover {
+    cursor: pointer;
+}
+
+.gallery .back-button::after {
+    content: '<';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 2rem;
+}

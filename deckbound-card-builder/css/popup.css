@@ -1,0 +1,63 @@
+.pop-up {
+    position: absolute;
+    transition: all 0.5s;
+    background-color: rgb(67, 67, 126);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    width: 75vmin;
+    height: 75vmin;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    top: -100vh;
+    left: calc(50% - 37.5vmin);
+    flex-direction: column;
+}
+
+.pop-up > * {
+    white-space: pre;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.pop-up code {
+    flex: 1;
+    overflow: auto;
+    padding: 0.75rem;
+}
+
+.pop-up button {
+    user-select: none;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.pop-up > :first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin-bottom: 0;
+    margin-top: 0.75rem;
+}
+
+.pop-up > :last-child {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    margin-top: 0;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 750;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
