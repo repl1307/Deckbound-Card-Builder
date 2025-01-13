@@ -45,6 +45,7 @@ export default class CardEffectsTab extends Box {
         const container = new Box().addClass('effect-container');
         const name = new Box().addClass('name').setText(this.effectsDropdown.html.value);
         const duration = new Box().addClass('duration').setText(this.duration.html.value + ' Turns');
+        duration.addEventListener('input', e => acceptNumbersOnly(duration, e));
         const targets = new Box().addClass('targets').setText(this.targetDropdown.html.value);
         const cardEffect = new CardEffect(this.effectsDropdown.value, Number(this.duration.html.value), this.targetDropdown.html.value);
         this.effects.push(cardEffect);
@@ -110,4 +111,16 @@ export default class CardEffectsTab extends Box {
             .setAttribute('max', max.toString());
         return inputContainer.children.at(-1);
     }
+}
+
+// convert input to numbers within min-max
+function acceptNumbersOnly(input, e){
+    e.target.value = e.target.value.replace(/[^0-9\.]/g, '');
+    const max = Number(input.getAttribute('max'));
+    const min = Number(input.getAttribute('min'));
+    console.log(min+ ' '+max);
+    if(e.target.value > max)
+        e.target.value = max;
+    if(e.target.value < min)
+        e.target.value = min;
 }
