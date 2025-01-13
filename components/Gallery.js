@@ -76,7 +76,7 @@ function displayPaths(elem){
 
     for(const file of currentPath.files){
         const fileElem = new Box().addClass('file');
-        const path = 'images/Cards' + previousPathName + '/' + currentPath.name + '/' + file.name;
+        const path = '/images/Cards' + previousPathName + '/' + currentPath.name + '/' + file.name;
 
         const text = new Box().addClass('text').setText(file.name);
         if(file.files.length == 0){
