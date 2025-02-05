@@ -47,7 +47,7 @@ export default class CardEffectsTab extends Box {
         const duration = new Box().addClass('duration').setText(this.duration.html.value + ' Turns');
         duration.addEventListener('input', e => acceptNumbersOnly(duration, e));
         const targets = new Box().addClass('targets').setText(this.targetDropdown.html.value);
-        const cardEffect = new CardEffect(this.effectsDropdown.value, Number(this.duration.html.value), this.targetDropdown.html.value);
+        const cardEffect = new CardEffect(this.effectsDropdown.getValue(), Number(this.duration.html.value), this.targetDropdown.html.value);
         this.effects.push(cardEffect);
 
         const removeButton = new Box().setText('X').addClass('remove-button').onClick(e => {
@@ -79,6 +79,9 @@ export default class CardEffectsTab extends Box {
         const container = new Box().addClass('card-input');
         const span = new UI('span').setText(name);
         const dropdown = new UI('select');
+        dropdown.getValue = () => { return dropdown.html.value 
+
+        };
         for(const opt of options){
             const option = new UI('option').setText(opt.name).setAttribute('value', opt.value);
             dropdown.append(option);
