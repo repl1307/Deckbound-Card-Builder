@@ -1,19 +1,6 @@
 import { Box, UI } from 'zephyr-ui';
 import '../css/gallery.css';
-
-const imagePaths = {
-    name: 'Images',
-    files: [
-        { name: 'bluestuff.jpg', files: [] },
-        { name: 'wizard.png', files: [] },
-        {
-            name: 'Fool',
-            files: [
-                { name: 'wizard.png', files: [] },
-            ]
-        }
-    ]
-}
+import { imagePaths } from './ImageFiles';
 
 export default class Gallery extends Box {
     constructor(){
