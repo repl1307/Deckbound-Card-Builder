@@ -79,8 +79,8 @@ export default class CardEffectsTab extends Box {
         const container = new Box().addClass('card-input');
         const span = new UI('span').setText(name);
         const dropdown = new UI('select');
-        dropdown.getValue = () => { return dropdown.html.value 
-
+        dropdown.getValue = () => { 
+            return dropdown.html.value;
         };
         for(const opt of options){
             const option = new UI('option').setText(opt.name).setAttribute('value', opt.value);

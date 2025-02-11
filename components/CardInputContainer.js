@@ -98,7 +98,7 @@ export default class CardInputContainer extends Box {
             const mastery = Number(this.mastery.getValue());
             const spiritCost = Number(this.spiritCost.getValue());
             let art = this.image.getValue();
-            const sequence = this.sequence.getValue();
+            const sequence = Number(this.sequence.getValue());
             const pathway = this.pathway.getValue();
             const pathwayGroup = this.pathwayGroup.getValue();
             const effects = this.cardEffectsTab.effects;
