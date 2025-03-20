@@ -4,16 +4,27 @@ import { CardEffect, Effects, Targets } from './Card';
 const effectsList = [];
 const targetsList = [];
 
-for(const [key, value] of Object.entries(Effects)){
-    effectsList.push({
-        name: value,
-        value: key
+const effectEntries = Object.entries(Effects)
+.filter(([key]) => !isNaN(Number(key)))
+.map(([key, value]) => [Number(key), value]);
+
+const targetEntries = Object.entries(Targets)
+    .filter(([key]) => !isNaN(Number(key)))
+    .map(([key, value]) => [Number(key), value]);
+
+console.log('target entries');
+console.log(targetEntries);
+
+for(const entry of targetEntries){
+    targetsList.push({
+        name: entry[1],
+        value: entry[0]
     });
 }
-for(const [key, value] of Object.entries(Targets)){
-    targetsList.push({
-        name: value,
-        value: key
+for(const entry of effectEntries){
+    effectsList.push({
+        name: entry[1],
+        value: entry[0]
     });
 }
 
@@ -24,7 +35,7 @@ export default class CardEffectsTab extends Box {
         this.effects = [];
         this.effectsDropdown = this.addDropdown('Effect', effectsList);
         this.targetDropdown = this.addDropdown('Target', targetsList);
-        this.duration = this.addNumInput('Duration', 0, 1000);
+        this.duration = this.addNumInput('Duration/Value', 0, 1000);
         this.addEffectButton = new Box('button').addClass('export-button').setText('Add Effect').center()
             .onClick(e => this.addEffect());
         this.append(this.addEffectButton);
@@ -44,10 +55,23 @@ export default class CardEffectsTab extends Box {
     addEffect(){
         const container = new Box().addClass('effect-container');
         const name = new Box().addClass('name').setText(this.effectsDropdown.html.value);
-        const duration = new Box().addClass('duration').setText(this.duration.html.value + ' Turns');
+
+        const effectValue = this.effectsDropdown.html.value;
+        const targetValue = this.targetDropdown.html.value;
+
+        const targetText = targetEntries.find(entry => entry[0] == targetValue)[1];
+        const nameText = effectEntries.find(entry => entry[0] == effectValue)[1];
+        name.setText(nameText);
+
+        // set duration text
+        let durationText = this.duration.html.value;
+        if(effectValue != Effects.Damage && effectValue != Effects.Shield && effectValue != Effects.Heal)
+            durationText += ' Turns';
+
+        const duration = new Box().addClass('duration').setText(durationText);
         duration.addEventListener('input', e => acceptNumbersOnly(duration, e));
-        const targets = new Box().addClass('targets').setText(this.targetDropdown.html.value);
-        const cardEffect = new CardEffect(this.effectsDropdown.getValue(), Number(this.duration.html.value), this.targetDropdown.html.value);
+        const targets = new Box().addClass('targets').setText(targetText);
+        const cardEffect = new CardEffect(Number(this.effectsDropdown.getValue()), Number(this.duration.html.value), Number(this.targetDropdown.html.value));
         this.effects.push(cardEffect);
 
         const removeButton = new Box().setText('X').addClass('remove-button').onClick(e => {
@@ -66,8 +90,8 @@ export default class CardEffectsTab extends Box {
         header.append(new Box().setText('Current Effects').setStyle('padding', '0.5rem'));
         const container = new Box().addClass('effect-container').setStyle('font-size', '1.25rem');
         const name = new Box().addClass('name').setText('Name');
-        const duration = new Box().addClass('duration').setText('Duration');
-        const targets = new Box().addClass('targets').setText('Targets');
+        const duration = new Box().addClass('duration').setText('Duration/Value');
+        const targets = new Box().addClass('targets').setText('Target');
 
         container.append([ name, duration, targets ]);
         header.append(container);
@@ -99,7 +123,6 @@ export default class CardEffectsTab extends Box {
             inputField.setAttribute('maxlength', inputLength);
         inputContainer.append([label, inputField]);
         inputContainer.getValue = () => {
-            console.log("Got value!: "+ inputField.html.value);
             return inputField.html.value;
         };
         this.append(inputContainer);

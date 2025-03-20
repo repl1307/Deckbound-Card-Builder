@@ -72,7 +72,7 @@ button:active:not(.copy-button) {
 }
 
 .card-input input {
-    width: 70%;
+    width: 60%;
 }
 
 .current-effects {

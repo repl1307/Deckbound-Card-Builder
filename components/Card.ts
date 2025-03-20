@@ -1,23 +1,39 @@
-export enum Effects {
-    Damage = "Damage",
-    Stun = "Stun",
-    Bleed = "Bleed",
-    Shield = "Shield"
+export enum Effects
+{
+    Damage,
+    Heal,
+    Shield,
+    Burn,
+    Ablaze,
+    DivineFlame,
+    Slow,
+    Rust,
+    Fear,
+    Dread,
+    Vulnerable,
+    Bleed,
+    Confusion,
+    Cunning,
+    Stun,
+    Taunt,
+    Scorn,
+    Intangible,
 }
 
 export enum Targets {
-    Self = "Self",
-    Enemy = "Enemy",
-    Ally = "Ally",
-    AllEnemies = "All Enemies",
-    AllAllies = "All Allies"
-}
+    Self,
+    Enemy,
+    Ally,
+    AllEnemies,
+    AllAllies,
+    All,
+} 
 
 Object.freeze(Effects);
 Object.freeze(Targets)
 
 export class CardEffect {
-    name: string;
+    name: Effects;
     duration: number;
     target: Targets;
 
