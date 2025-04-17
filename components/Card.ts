@@ -33,13 +33,15 @@ Object.freeze(Effects);
 Object.freeze(Targets)
 
 export class CardEffect {
-    name: Effects;
+    effectType: Effects;
     duration: number;
+    value: number;
     target: Targets;
 
-    constructor(name: Effects, duration: number, target: Targets){
-        this.name = name;
+    constructor(effectType: Effects, duration: number, value: number, target: Targets){
+        this.effectType = effectType;
         this.duration = duration;
+        this.value = value;
         this.target = target;
     }
 }

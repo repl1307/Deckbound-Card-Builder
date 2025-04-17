@@ -29,8 +29,6 @@ export default class Tabs extends Box {
     // tab - UI 
     setTab(tabName){
         const index = this.tabNames.findIndex(label => label.getText() == tabName);
-        console.log(index)
-        console.log(this.tabs)
         this.tabNames.forEach(name => name.removeClass('selected'));
         this.tabNames[index].addClass('selected');
         if(this.currentTab)

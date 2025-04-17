@@ -14,7 +14,7 @@ export default class CardDisplayContainer extends Box {
             .addClass('name');
         card.image = new UI('img')
             .addClass('image')
-            .setAttribute('alt', 'Card Image');
+            .setAttribute('alt', ' ');
         card.description = new UI('p')
             .setText('Card Description')
             .addClass('description');
