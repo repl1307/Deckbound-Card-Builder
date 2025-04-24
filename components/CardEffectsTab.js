@@ -25,6 +25,8 @@ for(const entry of effectEntries){
         value: entry[0]
     });
 }
+// put effects in alphabetical order
+effectsList.sort((a, b) => a.name.localeCompare(b.name));
 
 export default class CardEffectsTab extends Box {
     constructor(){
