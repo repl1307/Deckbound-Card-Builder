@@ -18,6 +18,31 @@ export enum Effects
     Taunt,
     Scorn,
     Intangible,
+    Hasten,
+    Draw,
+    Insanity,
+    Sanity,
+    BolsterBody,
+    Trap,
+    Strengthen,
+    Empower,
+    Deadly,
+    Rupture,
+    Corrosion,
+    CullofSpiritualFlesh,
+    Betrayal,
+    Degenerated,
+    Precise,
+    BolsterMind,
+    Summon,
+    Enchant,
+    Cleanse,
+    Peer,
+    ShareEffects,
+    ShareDamage,
+    Graze,
+    PuppetThreads,
+    Rejuvenate
 }
 
 export enum Targets {
@@ -49,7 +74,6 @@ export class CardEffect {
 export interface CardParams {
     name: string; // card name, max 50 characters
     description: string; // card description, max 200 characters
-    mastery: number; // card mastery, 0-100
     spiritCost: number; // spirit cost, 0-100
     art: string; // file path of card art
     sequence: number; // card sequence, 0-9
@@ -61,7 +85,6 @@ export interface CardParams {
 export class Card {
     name: string; // card name, max 50 characters
     description: string; // card description, max 200 characters
-    mastery: number; // card mastery, 0-100
     spiritCost: number; // spirit cost, 0-100
     art: string; // file path of card art
     sequence: number; // card sequence, 0-9
@@ -69,10 +92,9 @@ export class Card {
     pathwayGroup: string; // pathway group
     effects: CardEffect[]; //list of card effects
 
-    constructor({name, description, mastery, spiritCost, art, sequence, pathway, pathwayGroup, effects} : CardParams){
+    constructor({name, description, spiritCost, art, sequence, pathway, pathwayGroup, effects} : CardParams){
         this.name = name;
         this.description = description;
-        this.mastery = mastery;
         this.spiritCost = spiritCost;
         this.art = art;
         this.sequence = sequence;

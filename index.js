@@ -51,12 +51,6 @@ cardInput.description.addEventListener('input', e =>  {
     cardDisplay.card.description.setText(value);
 });
 
-// mastery
-cardInput.mastery.addEventListener('input', e => {
-    const input = cardInput.mastery.children.at(-1);
-    acceptNumbersOnly(input, e);
-});
-
 //spirit cost
 cardInput.spiritCost.addEventListener('input', e => {
     const input = cardInput.spiritCost.children.at(-1);

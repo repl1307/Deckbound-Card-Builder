@@ -13,17 +13,15 @@ export default class CardInputContainer extends Box {
         this.tabs = new Tabs();
         this.append(this.tabs);
         const infoTab = new Box().column().setStyle('flex', 1);
-
         this.name = this.addInput('Name', 'input', 50).addClass('card-input');
         this.spiritCost = this.addNumInput('Spirit Cost', 0, 100);
-        this.mastery = this.addNumInput('Mastery', 0, 100);
         this.sequence = this.addNumInput('Sequence', 0, 9);
         this.createPathwaySelect();
         this.image = this.addImageInput('Image');
         this.description = this.addInput('Description','textarea', 200).addClass('card-text-area');
         this.description.children.at(-1).setAttribute('rows', 10);
 
-        infoTab.append([this.name, this.spiritCost, this.mastery, this.sequence, this.pathwayGroup, this.pathway, this.image, this.description]);
+        infoTab.append([this.name, this.spiritCost, this.sequence, this.pathwayGroup, this.pathway, this.image, this.description]);
         this.tabs.addTab('Info', infoTab);
         this.cardEffectsTab = new CardEffectsTab();
         this.tabs.addTab('Effects', this.cardEffectsTab);
@@ -95,7 +93,6 @@ export default class CardInputContainer extends Box {
             //error handling
             const name = this.name.getValue();
             const description = this.description.getValue();
-            const mastery = Number(this.mastery.getValue());
             const spiritCost = Number(this.spiritCost.getValue());
             let art = this.image.getValue();
             const sequence = Number(this.sequence.getValue());
@@ -109,7 +106,7 @@ export default class CardInputContainer extends Box {
             }
             art = art.split('.')[0];
 
-            const card = new Card({ name, description, mastery, spiritCost, art, sequence, pathway, pathwayGroup, effects});
+            const card = new Card({ name, description, spiritCost, art, sequence, pathway, pathwayGroup, effects});
             popup.show();
             popup.setCode(JSON.stringify(card, null, 2), 'js');
         });
